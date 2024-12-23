@@ -1,0 +1,64 @@
+﻿@model proekt.Models.Order
+
+@{
+    ViewData["Title"] = "Создать заказ";
+}
+
+<h1 class="text-center" style="color: #2e7d32; margin-bottom: 20px;">Создать заказ</h1>
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <!-- Информация о пользователе -->
+    <div class="form-group">
+        <label asp-for="UserId" class="control-label">Ваш ID</label>
+        <input asp-for="UserId" class="form-control" placeholder="Введите ваш ID" />
+        <span asp-validation-for="UserId" class="text-danger"></span>
+    </div>
+
+    <!-- Поле ввода телефона и имени -->
+    <div class="form-group">
+        <label>Как вас зовут?</label>
+        <input type="text" class="form-control" placeholder="Введите ваше имя" />
+    </div>
+    <div class="form-group">
+        <label>Номер телефона</label>
+        <input type="tel" class="form-control" placeholder="Введите ваш номер телефона" />
+    </div>
+
+    <!-- Выбор адреса доставки -->
+    <div class="form-group">
+        <label asp-for="DeliveryAddress" class="control-label">Где хотите забрать заказ?</label>
+        
+        <input asp-for="DeliveryAddress" class="form-control" />
+        <span asp-validation-for="DeliveryAddress" class="text-danger"></span>
+        </div>
+    <!-- Поле комментариев -->
+    <div class="form-group">
+        <label>Комментарий</label>
+        <textarea class="form-control" rows="3" placeholder="Введите комментарий к заказу"></textarea>
+    </div>
+
+    <!-- Выбор времени доставки -->
+    <div class="form-group">
+        <label asp-for="DateTime" class="control-label">Выберите время</label>
+        <input asp-for="DateTime" type="datetime-local" class="form-control" />
+        <span asp-validation-for="DateTime" class="text-danger"></span>
+    </div>
+
+    <!-- Итоговая сумма -->
+    <div class="form-group">
+        <h4>Итого: <span asp-for="TotalAmount" class="text-success">0 ₽</span></h4>
+        <input asp-for="TotalAmount" type="hidden" value="0" />
+    </div>
+
+    <!-- Кнопка создания заказа -->
+  
+    <div class="form-group">
+        <input type="submit" value="К выбору способа оплаты" class="btn btn-primary" />
+    </div>
+</form>
+
+<div class="text-center" style="margin-top: 20px;">
+    <a asp-action="Index" class="btn btn-link">Назад к списку</a>
+</div>

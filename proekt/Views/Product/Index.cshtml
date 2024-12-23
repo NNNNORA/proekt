@@ -1,0 +1,89 @@
+﻿@model IEnumerable<proekt.Models.Product>
+<!-- Устанавливаем фоновое изображение -->
+<style>
+    body {
+        background: url('https://img.goodfon.ru/wallpaper/nbig/8/96/badfon-minimalizm-oboi-art.webp') no-repeat center center fixed;
+        background-size: cover;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Дополнительный стиль для затемнения фона */
+    /* .overlay { */
+    /*     background-color: rgba(0, 0, 0, 0.5); /* Темный прозрачный слой */ */
+    /*     position: absolute; */
+    /*     top: 0; */
+    /*     left: 0; */
+    /*     width: 100%; */
+    /*     height: 100%; */
+    /*     z-index: -1; */
+    /* } */
+
+    .content {
+        position: relative;
+        z-index: 1;
+        color: white; /* Цвет текста, чтобы был виден на фоне */
+    }
+</style>
+
+<!-- Обертка для затемнения фона -->
+<div class="overlay"></div>
+@{
+    ViewData["Title"] = "Рекомендуем попробовать";
+}
+
+<h1 class="text-center" style="color: #2e7d32; margin-bottom: 30px;">Рекомендуем попробовать</h1>
+
+<div style="text-align: center; margin-bottom: 20px;">
+    <form asp-action="Index" method="get" style="display: inline-block; width: 100%; max-width: 400px;">
+        <input type="text" name="searchQuery" value="@ViewData["SearchQuery"]" placeholder="Введите название или описание..."
+               style="width: 70%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em;">
+        <button type="submit" style="padding: 10px 20px; background-color: #5cb85c; color: white; border: none; border-radius: 5px; font-size: 1em; cursor: pointer;">
+            Искать
+        </button>
+    </form>
+</div>
+
+<!-- Кнопка добавления нового товара -->
+<div style="text-align: center; margin-bottom: 20px;">
+    <a asp-controller="Product" asp-action="Create" style="padding: 10px 20px; background-color: #5cb85c; color: white; text-decoration: none; border-radius: 5px; font-size: 1em;">
+        Добавить новый товар
+    </a>
+</div>
+
+<!-- Карточки продуктов -->
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+
+    @if (Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <div style="width: 200px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.2s ease; background-color: white;">
+                <!-- Изображение продукта -->
+                <a asp-action="Details" asp-route-id="@item.Id" style="text-decoration: none;">
+                    <div style="height: 150px; background: url('@item.Image') no-repeat center/cover;"></div>
+                </a>
+
+                <!-- Информация о продукте -->
+                <div style="padding: 10px;">
+                    <p style="font-weight: bold; font-size: 1em; color: #333;">@item.Name</p>
+                    <p style="font-size: 0.9em; color: #777;">@item.Weight г</p>
+                    <p style="font-size: 1.1em; font-weight: bold; color: #2e7d32;">@item.Price ₽</p>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <!-- Кнопка добавления в корзину -->
+                        <form asp-controller="Cart" asp-action="AddToCart" method="post" style="margin: 0;">
+                            <input type="hidden" name="productId" value="@item.Id" />
+                            <button type="submit" style="padding: 5px 10px; background-color: #5cb85c; color: white; border: none; border-radius: 5px; font-size: 0.9em; cursor: pointer;">
+                                Добавить
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p style="text-align: center; color: #777;">Нет доступных продуктов</p>
+    }
+</div>

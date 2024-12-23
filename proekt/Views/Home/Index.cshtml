@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доставка Здоровой Еды</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        body {
+            background-color: #e8f5e9 !important; /* Светло-зелёный фон */
+        }
+
+        header {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+            nav ul li {
+                margin-right: 20px;
+            }
+
+                nav ul li a {
+                    text-decoration: none;
+                    color: #333;
+                    font-weight: bold;
+                    padding: 10px 20px;
+                    border: 1px solid #5cb85c;
+                    border-radius: 20px;
+                    background-color: white;
+                    transition: all 0.3s ease;
+                }
+
+                    nav ul li a:hover {
+                        background-color: #5cb85c;
+                        color: white;
+                    }
+
+        .hero {
+            background: url('https://cdn.forbes.ru/files/c/1824x1218/gallery_images/1290494158.jpg__1597832081__93011.jpg') no-repeat center/cover;
+            padding: 120px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .company-name h1 {
+            font-size: 5em; /* Очень крупный текст */
+            font-weight: bold; /* Жирный шрифт */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); /* Эффект тени */
+            background: linear-gradient(90deg, #013220, #008000, #228B22); /* Градиент */
+            -webkit-background-clip: text; /* Используем градиент для текста */
+            -webkit-text-fill-color: transparent; /* Делаем фон текста прозрачным */
+            
+           
+            font-family: 'Georgia', serif; /* Элегантный шрифт */
+            margin: 0 auto;
+            text-align: center; /* Центрируем текст */
+        }
+
+        .company-name {
+            margin-bottom: 40px; /* Пространство между названием компании и остальным текстом */
+        }
+
+        .hero h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: #5cb85c;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+
+            .hero button:hover {
+                background-color: #4cae4c;
+            }
+
+        .features {
+            background-color: #e8f5e9; /* Светло-зелёный фон */
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+            .features .feature-item {
+                display: inline-block;
+                width: 23%;
+                margin: 1%;
+                padding: 20px;
+                background-color: #ffffff; /* Белый фон */
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+                .features .feature-item:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+                }
+
+                .features .feature-item h3 {
+                    font-size: 1.5em;
+                    color: #2e7d32; /* Зелёный цвет */
+                    margin-bottom: 15px;
+                }
+
+                .features .feature-item p {
+                    font-size: 1.1em;
+                    color: #555;
+                }
+
+        footer .footer-links {
+            margin-bottom: 20px; /* Отступ между ссылками и нижним текстом */
+            display: flex;
+            justify-content: center;
+            gap: 30px; /* Пространство между кнопками */
+        }
+
+            footer .footer-links a {
+                color: #a5d6a7; /* Светло-зеленый */
+                text-decoration: none;
+                font-size: 1em;
+                padding: 10px 15px; /* Внутренний отступ для увеличения кликабельной области */
+                border: 1px solid #66bb6a; /* Легкая граница */
+                border-radius: 10px; /* Закругленные углы */
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
+                footer .footer-links a:hover {
+                    color: #f1f8f4; /* Очень светло-зеленый */
+                    background-color: #66bb6a; /* Зеленый фон при наведении */
+                }
+
+    </style>
+</head>
+<body>
+
+
+    <section class="hero">
+        <div class="company-name">
+            <h1>Еда без вины</h1>
+        </div>
+        <h2>Доставка Здоровой Сбалансированной Еды</h2>
+        <p>В Новосибирске. Выберите подходящий Завтрак, Обед или Ужин!</p>
+        <button onclick="location.href='/Product'">Выбрать еду</button>
+    </section>
+
+    <section class="features">
+        <h2 style="font-size: 2em; color: #2e7d32; margin-bottom: 30px;">Наши преимущества</h2>
+        <div class="feature-item">
+            <div style="font-size: 3em;">🍱</div>
+            <h3>Широкий выбор блюд</h3>
+            <p>Сбалансированные рационы от 1000 до 2500 калорий, детские блюда.</p>
+        </div>
+        <div class="feature-item">
+            <div style="font-size: 3em;">🚚</div>
+            <h3>Быстрая доставка</h3>
+            <p>Наши курьеры работают специально для вас.</p>
+        </div>
+        <div class="feature-item">
+            <div style="font-size: 3em;">🤝</div>
+            <h3>Индивидуальный подход</h3>
+            <p>Поможем подобрать вам любой прием пищи.</p>
+        </div>
+        <div class="feature-item">
+            <div style="font-size: 3em;">🌱</div>
+            <h3>Качество</h3>
+            <p>Тушим, запекаем, су-видим только из свежих натуральных продуктов.</p>
+        </div>
+    </section>
+
+</body>
+</html>

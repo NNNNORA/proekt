@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Панель администратора";
+}
+
+<h1>Панель администратора</h1>
+<p>Добро пожаловать, @User.Identity.Name!</p>
+
+<ul>
+    <li><a asp-controller="Admin" asp-action="ManageUsers">Управление пользователями</a></li>
+    <li><a asp-controller="Admin" asp-action="ManageProducts">Управление продуктами</a></li>
+    <li><a asp-controller="Admin" asp-action="Reports">Отчеты</a></li>
+</ul>
